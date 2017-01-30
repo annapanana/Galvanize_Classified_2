@@ -1,5 +1,9 @@
-<h1>You Are Home</h1>
-
 <div ng-repeat="post in $ctrl.posts">
-  <h3>{{post.title}}</h3>
+  <div class="row">
+    <h3>{{post.id}}: {{post.title}}</h3>
+    <h4>Price: {{post.price}}</h4>
+    <h5>Description:</h5>
+    <p>{{post.description}}</p>
+    <img ng-src="{{post.item_image}}" alt="item-image">
+  </div>
 </div>

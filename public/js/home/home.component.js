@@ -12,6 +12,7 @@
       vm.$onInit = function() {
         // Pull all adds
         $http.get('/classifieds').then((result) => {
+          console.log(result.data);
           vm.posts = result.data;
         });
       };
