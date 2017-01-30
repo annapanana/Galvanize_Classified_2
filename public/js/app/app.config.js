@@ -28,7 +28,7 @@
         .state({
           name: "editPost",
           parent: "app",
-          url: "/new-post",
+          url: "/edit-post",
           component: "editPost",
           params: {
             selectedPost: {}
