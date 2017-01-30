@@ -7,6 +7,5 @@
     });
 
     function controller() {
-      console.log("controller loaded for app");
     }
 }());

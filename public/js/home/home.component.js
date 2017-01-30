@@ -6,11 +6,14 @@
       controller: controller
     });
 
-    function controller() {
-      console.log("controller loaded for home");
+    controller.$inject = ["$http", "$state"]
+    function controller($http, $state) {
       const vm = this;
       vm.$onInit = function() {
-
-      }
+        // Pull all adds
+        $http.get('/classifieds').then((result) => {
+          vm.posts = result.data;
+        });
+      };
     }
 }());
