@@ -9,21 +9,34 @@
     controller.$inject = ["$http", "$state"]
     function controller($http, $state) {
       const vm = this;
-      vm.isPosting = true;
+      vm.isPosting = false;
       vm.newPost = {};
       vm.$onInit = function() {
         // Pull all adds
+        refreshPosts();
+      };
+
+      vm.addPost = function() {
+        $http.post('/classifieds', vm.newPost).then((result) => {
+          console.log(result);
+          refreshPosts();
+        });
+      };
+
+      vm.toggleForm = function() {
+        if (vm.isPosting) {
+          vm.isPosting = false;
+        } else {
+          vm.isPosting = true;
+        }
+      };
+
+      function refreshPosts() {
         $http.get('/classifieds').then((result) => {
           // console.log(result.data);
           vm.posts = result.data;
         });
-      };
-
-      vm.addPost = function() {
-        // console.log("addPost", vm.newPost);
-        $http.post('/classifieds', vm.newPost).then((result) => {
-          console.log(result);
-        });
-      };
+      }
     }
+
 }());
