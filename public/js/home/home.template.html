@@ -8,11 +8,19 @@
   <input name="search" ng-model="searchText" type="search" placeholder="Search by keyword">
 </div>
 
-<div ng-repeat="post in $ctrl.posts | filter : searchText">
+<div class="row">
+  <h5>Sort Posts</h5>
+  <button type="button" name="button" ng-click="$ctrl.updateSort('-date')">Sort By Date</button>
+  <button type="button" name="button" ng-click="$ctrl.updateSort('price')">Sort By Price</button>
+</div>
+
+
+<div ng-repeat="post in $ctrl.posts | filter : searchText | orderBy : $ctrl.sortCriteria">
   <div class="row">
     <h3>{{post.id}}: {{post.title}}</h3>
     <h4>Price: {{post.price}}</h4>
-    <h5>Description:</h5>
+    <span am-time-ago="post.date"></span>
+    <h4>Description:</h4>
     <p>{{post.description}}</p>
     <img ng-src="{{post.item_image}}" alt="item-image">
   </div>

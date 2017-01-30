@@ -11,6 +11,7 @@ router.get('/', (req, res, next) => {
   knex('classifieds')
     .then((result) => {
       result = result.map((r) => {
+        r.date = r.updated_at;
         delete r.created_at;
         delete r.updated_at;
         return r;
@@ -23,6 +24,7 @@ router.get('/:id/', (req, res, next) => {
   knex('classifieds')
     .where('id', req.params.id)
     .then((result) => {
+      result[0].date = result[0].updated_at;
       delete result[0].created_at;
       delete result[0].updated_at;
       res.send(result[0]);
@@ -35,6 +37,7 @@ router.post('/', (req, res, next) => {
   knex('classifieds')
     .insert(newPost, '*')
     .then((result) => {
+      result[0].date = result[0].updated_at;
       delete result[0].created_at;
       delete result[0].updated_at;
       res.send(result[0]);
@@ -48,6 +51,7 @@ router.patch('/:id/', (req, res, next) => {
     .where('id', req.params.id)
     .update(newPost, '*')
     .then((result) => {
+      result[0].date = result[0].updated_at;
       delete result[0].created_at;
       delete result[0].updated_at;
       res.send(result[0]);

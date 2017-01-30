@@ -10,6 +10,7 @@
     function controller($http, $state, $stateParams) {
       const vm = this;
       vm.newPost = {};
+      vm.sortCriteria = "-date";
       vm.$onInit = function() {
         // Pull all adds
         refreshPosts();
@@ -30,9 +31,13 @@
         $state.go("newPost");
       };
 
+      vm.updateSort = function(criteria) {
+        vm.sortCriteria = criteria;
+      }
+
       function refreshPosts() {
         $http.get('/classifieds').then((result) => {
-          // console.log(result.data);
+          console.log(result.data);
           vm.posts = result.data;
         });
       }
