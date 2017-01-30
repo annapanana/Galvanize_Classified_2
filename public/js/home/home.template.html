@@ -1,33 +1,4 @@
-<button type="button" name="button" ng-click="$ctrl.toggleForm()">New Post</button>
-<div ng-show="$ctrl.isPosting">
-  <div class="row">
-    <form class="" action="index.html" method="post">
-      <div>
-        <label for="title">Title</label>
-        <br>
-        <input type="text" name="title" value="" ng-model="$ctrl.newPost.title">
-      </div>
-      <div>
-        <label for="description">Description</label>
-        <br>
-        <input type="text" name="description" value="" ng-model="$ctrl.newPost.description">
-      </div>
-      <div>
-        <label for="price">Price</label>
-        <br>
-        <input type="text" name="price" value="" ng-model="$ctrl.newPost.price">
-      </div>
-      <div>
-        <label for="item_image">Item Image</label>
-        <br>
-        <input type="text" name="item_image" value="" ng-model="$ctrl.newPost.item_image">
-      </div>
-      <div class="">
-        <button type="button" name="button" ng-click="$ctrl.addPost()">Submit Post</button>
-      </div>
-    </form>
-  </div>
-</div>
+<button type="button" name="button" ng-click="$ctrl.newPost()">New Post</button>
 <div ng-repeat="post in $ctrl.posts">
   <div class="row">
     <h3>{{post.id}}: {{post.title}}</h3>
@@ -36,6 +7,7 @@
     <p>{{post.description}}</p>
     <img ng-src="{{post.item_image}}" alt="item-image">
   </div>
-  <button type="button" name="button" ng-click="$ctrl.deletePost(post.id)">Delete Post</button>
+  <button type="button" name="delete_post" ng-click="$ctrl.deletePost(post.id)">Delete Post</button>
+  <button type="button" name="edit_post" ng-click="$ctrl.toggleEdit()">Edit Post</button>
   <hr>
 </div>

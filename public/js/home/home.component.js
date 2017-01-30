@@ -6,10 +6,9 @@
       controller: controller
     });
 
-    controller.$inject = ["$http", "$state"]
-    function controller($http, $state) {
+    controller.$inject = ["$http", "$state", "$stateParams"]
+    function controller($http, $state, $stateParams) {
       const vm = this;
-      vm.isPosting = false;
       vm.newPost = {};
       vm.$onInit = function() {
         // Pull all adds
@@ -30,12 +29,8 @@
         });
       };
 
-      vm.toggleForm = function() {
-        if (vm.isPosting) {
-          vm.isPosting = false;
-        } else {
-          vm.isPosting = true;
-        }
+      vm.newPost = function() {
+        $state.go("newPost");
       };
 
       function refreshPosts() {

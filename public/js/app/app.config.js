@@ -18,6 +18,21 @@
           parent: "app",
           url: "/",
           component: "home"
+        })
+        .state({
+          name: "newPost",
+          parent: "app",
+          url: "/new-post",
+          component: "newPost"
+        })
+        .state({
+          name: "editPost",
+          parent: "app",
+          url: "/new-post",
+          component: "editPost",
+          params: {
+            post_id: 0
+          }
         });
     }
 }());
