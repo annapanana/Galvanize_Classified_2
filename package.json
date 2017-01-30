@@ -11,11 +11,15 @@
   "author": "",
   "description": "",
   "dependencies": {
+    "angular": "^1.6.1",
     "body-parser": "^1.16.0",
+    "bootstrap": "^3.3.7",
     "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
+    "jquery": "^3.1.1",
     "knex": "^0.12.6",
-    "pg": "^6.1.0"
+    "pg": "^6.1.0",
+    "ui-bootstrap": "^0.1.9"
   },
   "devDependencies": {
     "chai": "^3.5.0",
