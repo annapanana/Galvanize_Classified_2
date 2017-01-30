@@ -36,4 +36,6 @@
     <p>{{post.description}}</p>
     <img ng-src="{{post.item_image}}" alt="item-image">
   </div>
+  <button type="button" name="button" ng-click="$ctrl.deletePost(post.id)">Delete Post</button>
+  <hr>
 </div>

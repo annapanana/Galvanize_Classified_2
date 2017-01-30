@@ -23,6 +23,13 @@
         });
       };
 
+      vm.deletePost = function(id) {
+        $http.delete(`/classifieds/${id}`).then((result) => {
+          console.log(result);
+          refreshPosts();
+        });
+      };
+
       vm.toggleForm = function() {
         if (vm.isPosting) {
           vm.isPosting = false;
