@@ -31,7 +31,7 @@
           url: "/new-post",
           component: "editPost",
           params: {
-            post_id: 0
+            selectedPost: {}
           }
         });
     }

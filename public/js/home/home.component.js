@@ -15,19 +15,16 @@
         refreshPosts();
       };
 
-      vm.addPost = function() {
-        $http.post('/classifieds', vm.newPost).then((result) => {
-          console.log(result);
-          refreshPosts();
-        });
-      };
-
       vm.deletePost = function(id) {
         $http.delete(`/classifieds/${id}`).then((result) => {
           console.log(result);
           refreshPosts();
         });
       };
+
+      vm.editPost = function(thisPost) {
+        $state.go("editPost", {selectedPost:thisPost})
+      }
 
       vm.newPost = function() {
         $state.go("newPost");
