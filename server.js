@@ -17,6 +17,7 @@ app.use('/jquery', express.static('node_modules/jquery/dist'));
 app.use('/bootstrap', express.static('node_modules/bootstrap/dist/js'));
 app.use('/angular', express.static('node_modules/angular'));
 app.use('/ui-bootstrap', express.static('node_modules/ui-bootstrap/'));
+app.use('/angular-ui-router', express.static('node_modules/angular-ui-router/release'));
 
 const port = process.env.PORT || 3000;
 

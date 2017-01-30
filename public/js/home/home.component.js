@@ -8,5 +8,9 @@
 
     function controller() {
       console.log("controller loaded for home");
+      const vm = this;
+      vm.$onInit = function() {
+
+      }
     }
 }());
